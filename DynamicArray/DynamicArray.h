@@ -1,3 +1,4 @@
+// DynamicArray.h
 #ifndef DYNAMICARRAY_H
 #define DYNAMICARRAY_H
 
@@ -26,6 +27,10 @@ public:
 
   // 5. Destructor (Free allocated memory)
   ~DynamicArray();
+
+  // Assignment Operators, copy and Move
+  DynamicArray &operator=(const DynamicArray &other);
+  DynamicArray &operator=(DynamicArray &&other) noexcept;
 
   void pushback(int n);
   int popback();
