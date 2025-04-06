@@ -32,14 +32,16 @@ public:
   DynamicArray &operator=(const DynamicArray &other);
   DynamicArray &operator=(DynamicArray &&other) noexcept;
 
-  void pushback(int n);
-  int popback();
+  int &operator[](int i);
+  const int &operator[](int i) const;
+
+  void push_back(int n);
+  int pop_back();
   void resize();
   int getSize() const;
   int getCapacity() const;
-
-  int &operator[](int i);
-  const int &operator[](int i) const;
+  
+  void print() const;
 };
 
 #endif // DYNAMICARRAY_H

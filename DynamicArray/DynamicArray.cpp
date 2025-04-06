@@ -88,3 +88,59 @@ DynamicArray &DynamicArray::operator=(DynamicArray &&other) noexcept {
 
   return *this;
 }
+
+int &DynamicArray::operator[](int i) {
+  if (i < 0 || i >= size) throw std::out_of_range("Index out of bounds");
+
+  return arr[i];
+}
+
+const int &DynamicArray::operator[](int i) const {
+  if (i < 0 || i >= size) throw std::out_of_range("Index out of bounds");
+
+  return arr[i];
+}
+
+void DynamicArray::push_back(int n) {
+  if (size == cap) resize();
+
+  arr[size++] = n;
+}
+
+int DynamicArray::pop_back(int n) {
+  if (size == 0) throw std::out_of_range("Array is empty, cannot pop");
+
+  return arr[--size];
+}
+
+void DynamicArray::resize() {
+  int newCap = (cap == 0) ? 1 : cap * 2;
+  int newArr = new int[newCap];
+
+  for (int i = 0; i < size; ++i) {
+    newArr[i] = arr[i];
+  }
+
+  delete[] arr;
+  arr = newArr;
+  cap = newCap;
+}
+
+int DynamicArray::getSize() const {
+  return size;
+}
+
+int DynamicArray::getCapacity() const {
+  return cap;
+}
+
+void DynamicArray::print() const {
+  std::cout << "[";
+
+  for (int i = 0; i < size; ++i) {
+    std::cout << arr[i];
+    if (i != size - 1) std::cout << ", ";
+  }
+
+  std::cout << "]" << std::endl;
+}
