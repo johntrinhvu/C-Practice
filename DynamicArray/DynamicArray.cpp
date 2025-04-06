@@ -107,7 +107,7 @@ void DynamicArray::push_back(int n) {
   arr[size++] = n;
 }
 
-int DynamicArray::pop_back(int n) {
+int DynamicArray::pop_back() {
   if (size == 0) throw std::out_of_range("Array is empty, cannot pop");
 
   return arr[--size];
@@ -115,7 +115,7 @@ int DynamicArray::pop_back(int n) {
 
 void DynamicArray::resize() {
   int newCap = (cap == 0) ? 1 : cap * 2;
-  int newArr = new int[newCap];
+  int *newArr = new int[newCap];
 
   for (int i = 0; i < size; ++i) {
     newArr[i] = arr[i];
