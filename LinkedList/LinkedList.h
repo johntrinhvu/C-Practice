@@ -27,5 +27,12 @@ public:
 };
 
 class LinkedList {
+private:
+  ListNode *head;
+  ListNode *tail;
+
+public:
+  // 1. Default Constructor
+  LinkedList();
 
 };
