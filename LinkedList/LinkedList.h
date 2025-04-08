@@ -19,6 +19,11 @@ public:
 
   // 2. Parameterized Constructor
   ListNode(int val);
+
+  // 3. Paramterized Constructor w/ next pointer
+  ListNode(int val, ListNode *next);
+
+
 };
 
 class LinkedList {
